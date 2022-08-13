@@ -6,12 +6,12 @@ public class e5 {
 	public static void main(String[] args) {
 		Scanner ler = new Scanner(System.in);
 		String p1 = "", p2 = "", op = "";
-		float[] taxaC = new float[2];
+		double[] taxaC = new double[2];
 		int ano;
-		long[] populacao = new long[2];
-		int verificacao;
-		float verificacao2;
-		int[] teste = new int[2];
+		double[] populacao = new double[2];
+		double verificacao;
+		double verificacao2;
+		double[] teste = new double[2];
 		while (!op.equals("sair")) {
 			System.out.println("Escolha qual o comando desejado: " + "\n" + "1 - Carregar os dados do primeiro país"
 					+ "\n" + "2 - Carregar os dados do segundo país" + "\n" + "3 - Editar dados" + "\n"
@@ -133,17 +133,17 @@ public class e5 {
 
 			case ("4"):
 				ano = 0;
-			    teste[0] = (int) (populacao[0]+(taxaC[0]*populacao[0]));
-			    teste[1] = (int) (populacao[1]+(taxaC[1]*populacao[1]));
+			    teste[0] =  (taxaC[0]*populacao[0]);
+			    teste[1] =  (taxaC[1]*populacao[1]);
 			    if (teste[1] > teste[0]) {
 			    	System.out.println("A população de "+p1+" nunca passará a de "+p2);
 			    	System.out.println("Sugiro alterar os dados de um dos países.");
 			    } else {
 			    	taxaC[0] = taxaC[0]/100;
                 	taxaC[1] = taxaC[1]/100;
-               while (populacao[0] < populacao[1]){
-                	populacao[0] = (int) (populacao[0]+(taxaC[0]*populacao[0]));
-                	populacao[1] = (int) (populacao[1]+(taxaC[1]*populacao[1]));
+               while (populacao[0] <= populacao[1]){
+                	populacao[0] =  (populacao[0]+taxaC[0]*populacao[0]);
+                	populacao[1] =  (populacao[1]+taxaC[1]*populacao[1]);
                 	ano++;
                 }
                 System.out.println("Levará "+ano+" anos para o país "+p1+" passar a população de "+p2);
